@@ -1,0 +1,62 @@
+﻿<html lang="en">
+<head>
+<meta charset="utf-8" />
+</head>
+<body>
+    <div class="container">
+    <svg width="1000" height="2000" viewBox="-2000 -2000 6000 6000"></svg>
+    
+    <script type="text/javascript">
+        var svg = document.getElementsByTagName('svg')[0];
+        var svgNS = "http://www.w3.org/2000/svg";
+        const numbers = [-1, -2, -3, -4];
+        var coords = [];
+
+        // drawing the curved lines
+        for (i = -30; i < 50; i += 0.01) {
+            var x = 200 * i + 300 * Math.cos(i);
+            var y = 300 * i - 400 * Math.sin(i);
+            c = document.createElementNS(svgNS, "circle");
+            c.setAttribute("cx", x);
+            c.setAttribute("cy", y);
+            c.style.r = "1";
+            svg.appendChild(c);
+        }
+
+        // drawing the points
+        for (var i = 0; i < numbers.length; i++) {
+            var t = numbers[i];
+            var x = 200 * t + 300 * Math.cos(t);
+            var y = 300 * t - 400 * Math.sin(t);
+            coords.push({ cx: x, cy: y });
+            var c = document.createElementNS(svgNS, 'circle');
+            c.setAttributeNS(null, 'cx', x);
+            c.setAttributeNS(null, 'cy', y);
+            c.setAttributeNS(null, 'r', 30);
+            c.setAttributeNS(null, 'style', 'fill: red; stroke: blue; stroke-width: 5;');
+            svg.appendChild(c);
+        }
+
+        // drawing the primitives
+        var line1 = document.createElementNS(svgNS, 'line');
+        line1.setAttribute('id', 'line1');
+        line1.setAttribute('x1', (coords[0].cx + ''));
+        line1.setAttribute('y1', (coords[0].cy + ''));
+        line1.setAttribute('x2', (coords[3].cx + ''));
+        line1.setAttribute('y2', (coords[3].cy + ''));
+        line1.setAttribute("stroke", "purple");
+        line1.setAttribute("stroke-width", "25");
+        svg.appendChild(line1);
+
+        var s = coords[0].cx + ',' + coords[0].cy + ' ' + coords[1].cx + ',' + coords[1].cy + ' ' + coords[2].cx + ',' + coords[2].cy + ' ' + coords[3].cx + ',' + coords[3].cy;
+        var polyline = document.createElementNS(svgNS, 'polyline');
+        polyline.setAttribute('id', 'polyline');
+        polyline.setAttribute('points', s);
+        polyline.setAttribute("stroke", "pink");
+        polyline.setAttribute("stroke-width", "25");
+        polyline.setAttribute("fill", "none");
+        svg.appendChild(polyline);
+    </script>
+    </div>
+</body>
+</html>
