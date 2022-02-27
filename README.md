@@ -1,8 +1,6 @@
 ## Labs homework:
 
-1. Lab 1 
-
-   Tasks:
+1. Tasks:
 
    - (2p) Use available primitives to make a sketch of a house, along with trees / other items.
 
@@ -10,9 +8,7 @@
 
    - (1p) Let the curve c (t) = (200t + 300cos (t), 300t-400sin (t)). Choose four values of t, draw the corresponding points using circles and construct various other primitives related to these points (using line, path, with different colors).
 
-2. Lab 2
-
-   Tasks:
+2. Tasks:
 
    - (3p) Create an SVG file with a 2D "meaningful" scene in which you use at least 10 distinct elements.
 

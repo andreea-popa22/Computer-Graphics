@@ -1,19 +1,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <title>Tema 2</title>
 </head>
 <body>
+<style>
+    . {margin: 0;}
+</style>
 <div class="container">
     <svg width="1200" height="1200" viewBox="0 0 1200 1200">
+        // sky
+        <defs>
+            <radialGradient id="sky" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(51, 57, 128);stop-opacity:0" />
+                <stop offset="100%" style="stop-color:rgb(74, 81, 161);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <rect width="1200" height="600" fill="url(#sky)" />
+
+        // moon
         <defs>
             <radialGradient id="moon" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" style="stop-color:rgb(255,255,255);
-      stop-opacity:0" />
+                <stop offset="10%" style="stop-color:rgb(239, 240, 221);stop-opacity:1" />
                 <stop offset="100%" style="stop-color:rgb(227, 211, 168);stop-opacity:1" />
             </radialGradient>
         </defs>
-        <ellipse cx="600" cy="100" rx="60" ry="60" fill="url(#moon)" />
+        <ellipse cx="600" cy="230" rx="60" ry="60" fill="url(#moon)" />
 
+        // stars
         <polygon points="50,5 20,99 95,39 5,39 80,99"
                  style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
         <polygon points="180,115 150,209 225,149 135,149 210,209"
@@ -26,6 +40,66 @@
                  style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
         <polygon points="1080,75 1050,169 1125,109 1035,109 1110,169"
                  style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+
+        // cloud 1
+        <ellipse cx="100" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="70" cy="230" rx="50" ry="40" fill="#3030ab" />
+        <ellipse cx="170" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="110" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="170" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="220" cy="220" rx="50" ry="40" fill="#3030ab" />
+
+        // cloud 2
+        <ellipse cx="1000" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="970" cy="230" rx="50" ry="40" fill="#3030ab" />
+        <ellipse cx="1070" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1010" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1070" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1120" cy="220" rx="50" ry="40" fill="#3030ab" />
+
+        // ground
+        <defs>
+            <linearGradient id="ground" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(77, 135, 64);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(26, 61, 18);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 0 600 H 1200 V 1200 H 600 L 0 1200" fill="url(#ground)" />
+
+        // mountains
+        <defs>
+            <linearGradient id="mountain" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="20%" style="stop-color:rgb(26, 61, 18);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(85, 92, 84);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 0 600 q 150 -400 300 0" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 300 600 C 450,200 500,200, 700 600" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 650 600 C 880,200 900,200, 1050 600" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 1050 600 q 550 -600 1200 0" stroke-width="5" fill="url(#mountain)"></path>
+
+        // house
+        <rect x="100" y="900" width="300" height="250" style="fill:#5c5361" />
+        <polygon points="90,910 260,710 410,910" style="fill:#4a3d52" />
+        <rect x="230" y="1070" width="50" height="80" fill="#423c47"/>
+        <rect x="130" y="950" width="60" height="60" fill="#3a2d47" stroke-width="3" stroke="#4a3d52"/>
+        <line x1="130" y1="980" x2="190" y2="980" stroke-width="3" stroke="#423c47"/>
+        <line x1="160" y1="950" x2="160" y2="1010" stroke-width="3" stroke="#423c47"/>
+        <rect x="310" y="950" width="60" height="60" fill="#3a2d47" stroke-width="3" stroke="#423c47"/>
+        <line x1="310" y1="980" x2="370" y2="980" stroke-width="3" stroke="#423c47"/>
+        <line x1="340" y1="950" x2="340" y2="1010" stroke-width="3" stroke="#423c47"/>
+        <rect x="150" y="780" width="50" height="80" style="fill:#423c47" />
+        <defs>
+            <filter id="smoke" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
+        </defs>
+        <circle fill="#69676b" cx="170" cy="650" r="10" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="160" cy="675" r="20" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="180" cy="700" r="20" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="160" cy="730" r="30" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="180" cy="770" r="20" filter="url(#smoke)" />
+
     </svg>
 </div>
 </body>
