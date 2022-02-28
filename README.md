@@ -15,3 +15,7 @@
    - (3p) Represent a known curve in SVG. 
 
      For both requirements, prepare a short documentation.
+   
+   Scene:
+   
+   
