@@ -18,4 +18,4 @@
    
    Scene:
    
-   
+   ![Scene](https://github.com/andreea-popa22/Computer-Graphics/blob/master/lab-homework/tema2/scene.png?raw=true)
