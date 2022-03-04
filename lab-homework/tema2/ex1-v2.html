@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Exercitiul 1</title>
+</head>
+<body>
+<style>
+    . {margin: 0;}
+</style>
+<div class="container">
+    <svg width="1200" height="1200" viewBox="0 0 1200 1200">
+        // sky
+        <defs>
+            <radialGradient id="sky" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(51, 57, 128);stop-opacity:0" />
+                <stop offset="100%" style="stop-color:rgb(74, 81, 161);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <rect width="1200" height="600" fill="url(#sky)" />
+
+        // moon
+        <defs>
+            <radialGradient id="moon" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="10%" style="stop-color:rgb(239, 240, 221);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(227, 211, 168);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <ellipse cx="600" cy="230" rx="60" ry="60" fill="url(#moon)" />
+
+        // stars
+        <polygon points="50,5 20,99 95,39 5,39 80,99"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+        <polygon points="180,115 150,209 225,149 135,149 210,209"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+        <polygon points="380,75 350,169 425,109 335,109 410,169"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+        <polygon points="750,5 720,99 795,39 705,39 780,99"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+        <polygon points="880,115 850,209 925,149 835,149 910,209"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+        <polygon points="1080,75 1050,169 1125,109 1035,109 1110,169"
+                 style="fill:#dbd760;stroke:#dbd760;stroke-width:5;" />
+
+        // cloud 1
+        <ellipse cx="100" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="70" cy="230" rx="50" ry="40" fill="#3030ab" />
+        <ellipse cx="170" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="110" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="170" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="220" cy="220" rx="50" ry="40" fill="#3030ab" />
+
+        // cloud 2
+        <ellipse cx="1000" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="970" cy="230" rx="50" ry="40" fill="#3030ab" />
+        <ellipse cx="1070" cy="200" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1010" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1070" cy="250" rx="40" ry="40" fill="#3030ab" />
+        <ellipse cx="1120" cy="220" rx="50" ry="40" fill="#3030ab" />
+
+        // ground
+        <defs>
+            <linearGradient id="ground" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(77, 135, 64);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(26, 61, 18);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 0 600 H 1200 V 1200 H 600 L 0 1200" fill="url(#ground)" />
+
+        // mountains
+        <defs>
+            <linearGradient id="mountain" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="20%" style="stop-color:rgb(26, 61, 18);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(85, 92, 84);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M 0 600 q 150 -400 300 0" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 300 600 C 450,200 500,200, 700 600" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 650 600 C 880,200 900,200, 1050 600" stroke-width="5" fill="url(#mountain)"></path>
+        <path d="M 1050 600 q 550 -600 1200 0" stroke-width="5" fill="url(#mountain)"></path>
+
+        // rocks
+        <ellipse cx="75" cy="900" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="85" cy="875" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="100" cy="920" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="145" cy="930" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="190" cy="930" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="235" cy="925" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="280" cy="915" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="290" cy="890" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+        <ellipse cx="265" cy="870" rx="20" ry="10" fill="#69676b" stroke="#5f5d61" stroke-width="2"/>
+
+        // pot
+        <path d="
+             M 100,800
+             A 800,2000 0 0,0 260,800
+             A 800,2000 0 0,0 100,800
+             A 1100,2000 0 0,0 100,800
+             L 100,900
+             A 800,2000,0 0,0 260,900
+             L 260,800"
+              style="stroke:#2b2621;fill:#383431">
+        </path>
+        <path d="M 260,800
+              A 800,12000 0 0,0 100,800" style="stroke:#2b2621;stroke-width:3;fill:none">
+        </path>
+        <line x1="80" y1="745" x2="290" y2="745" stroke-width="7" stroke="#2e1110"/>
+        <line x1="80" y1="742" x2="80" y2="945" stroke-width="7" stroke="#2e1110"/>
+        <line x1="290" y1="742" x2="290" y2="945" stroke-width="7" stroke="#2e1110"/>
+        <polygon points="65,945 80,925 95,945" style="fill:#2e1110;" />
+        <polygon points="275,945 290,925 305,945" style="fill:#2e1110;" />
+
+        // smoke
+        <defs>
+            <filter id="smoke" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+            </filter>
+        </defs>
+        <circle fill="#69676b" cx="170" cy="650" r="10" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="160" cy="675" r="20" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="180" cy="700" r="20" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="160" cy="730" r="30" filter="url(#smoke)" />
+        <circle fill="#69676b" cx="180" cy="770" r="20" filter="url(#smoke)" />
+
+        // fire
+        <ellipse cx="105" cy="890" rx="8" ry="20" fill="#e6a822"/>
+        <ellipse cx="120" cy="895" rx="10" ry="20" fill="#e68e22"/>
+        <ellipse cx="140" cy="900" rx="12" ry="23" fill="#e6a822"/>
+        <ellipse cx="160" cy="905" rx="14" ry="25" fill="#e68e22"/>
+        <ellipse cx="180" cy="905" rx="12" ry="23" fill="#e6a822"/>
+        <ellipse cx="200" cy="900" rx="11" ry="26" fill="#e68e22"/>
+        <ellipse cx="220" cy="900" rx="12" ry="25" fill="#e6a822"/>
+        <ellipse cx="240" cy="895" rx="11" ry="27" fill="#e68e22"/>
+        <ellipse cx="255" cy="890" rx="9" ry="20" fill="#e6a822"/>
+
+        //big rocks
+        <polyline points="600,1000 680,850 700,830 730,810 780,770 840,790 870,790 900,770 920,800 930,1000 600,1000 " style="fill:#423c47;" />
+        <polyline points="640,1005 660,990  670,988 680,980 690,995 710,1005" style="fill:#595857;" />
+        <polyline points="590,1000 595,995 610,995  630,983 640,990 635,1005 590,1000" style="fill:#595857;" />
+
+    </svg>
+</div>
+</body>
+</html>

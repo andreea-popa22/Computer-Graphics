@@ -15,7 +15,15 @@
    - (3p) Represent a known curve in SVG. 
 
      For both requirements, prepare a short documentation.
-   
-   Scene:
-   
+
+   Scene 1:
+
    ![Scene](https://github.com/andreea-popa22/Computer-Graphics/blob/master/lab-homework/tema2/scene.png?raw=true)
+
+   Scene 2:
+
+   ![Scene](https://github.com/andreea-popa22/Computer-Graphics/blob/master/lab-homework/tema2/scene2.png?raw=true)
+
+3. Tasks:
+   
+   - (4p) (team) Make a figure to represent an object / an animal / etc. in which the connection of some Bezier curves should appear explicitly. Each member has to perform a calculation based on the course model. Documentation includes (i) a sketch; (ii) the calculations made by each member.
