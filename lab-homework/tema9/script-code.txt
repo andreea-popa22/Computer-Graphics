@@ -1,0 +1,88 @@
+import bpy
+import math
+
+verts = []
+faces = []
+edges = []
+
+# params for the plate unde the mug
+m = 6.0
+a = 1.0
+b = 1.0
+n1 = -0.47
+n2 = 1.61
+n3 = 0.87
+
+
+
+#params for the second shape
+m = 6.0
+a = 1.0
+b = 1.0
+n1 = 0.709889
+n2 = 46.8299
+n3 = -0.8027
+
+scale = 2
+
+Unum = 60
+Vnum = 60
+
+Uinc = math.pi / (Unum/2)
+Vinc = (math.pi/2)/(Vnum/2)
+
+theta = -math.pi
+for i in range (0, Unum + 1):
+phi = -math.pi/2
+r1 = 1/(((abs(math.cos(m*theta/4)/a))**n2+(abs(math.sin(m*theta/4)/b))**n3)**n1)
+for j in range(0,Vnum + 1):
+r2 = 1/(((abs(math.cos(m*phi/4)/a))**n2+(abs(math.sin(m*phi/4)/b))**n3)**n1)
+x = scale * (r1 * math.cos(theta) * r2 * math.cos(phi))
+y = scale * (r1 * math.sin(theta) * r2 * math.cos(phi))
+z = scale * (r2 * math.sin(phi))
+
+vert = (x,y,z)
+verts.append(vert)
+phi = phi + Vinc
+theta = theta + Uinc
+
+count = 0
+for i in range (0, (Vnum + 1) *(Unum)):
+if count < Vnum:
+A = i
+B = i+1
+C = (i+(Vnum+1))+1
+D = (i+(Vnum+1))
+
+face = (A,B,C,D)
+faces.append(face)
+
+count = count + 1
+else:
+count = 0
+
+
+
+mymesh = bpy.data.meshes.new("Cube")
+myobject = bpy.data.objects.new("Cube",mymesh)
+
+myobject.location = bpy.context.scene.cursor.location
+bpy.context.scene.collection.objects.link(myobject)
+
+mymesh.from_pydata(verts,edges,faces)
+mymesh.update(calc_edges=True)
+
+bpy.context.view_layer.objects.active = myobject
+bpy.ops.object.mode_set(mode='EDIT')
+
+bpy.ops.mesh.remove_doubles()
+
+bpy.ops.mesh.normals_make_consistent(inside=False)
+bpy.ops.object.mode_set(mode='OBJECT')
+
+myobject.modifiers.new("subd", type='SUBSURF')
+myobject.modifiers['subd'].levels = 3
+
+mypolys = mymesh.polygons
+for p in mypolys:
+p.use_smooth = True
